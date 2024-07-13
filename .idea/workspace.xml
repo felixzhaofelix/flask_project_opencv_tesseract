@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7ff45a65-27e2-444d-9e71-1c4e9a1451a0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/flaskOpencvTesseractSearchEngine.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/previousRequirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/emoji1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/emoji2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/emoji3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/emoji4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-2.png/a-2.png_face_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-2.png/a-2.png_face_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-3.png/a-3.png_face_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-3.png/a-3.png_face_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_text/small_text_0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_text/small_text_1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_text/small_text_2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_text/small_text_3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/zippedFiles/small_img.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2jB6byuuENDeJw7y8pCUYOOiqCt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/felixzhao/PycharmProjects/flaskOpencvTesseractSearchEngine/static",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="flaskOpencvTesseractSearchEngine" type="Python.FlaskServer">
+      <module name="flaskOpencvTesseractSearchEngine" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
+        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7ff45a65-27e2-444d-9e71-1c4e9a1451a0" name="Changes" comment="" />
+      <created>1720848197487</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720848197487</updated>
+      <workItem from="1720848201169" duration="310000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
