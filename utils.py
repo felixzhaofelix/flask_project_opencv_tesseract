@@ -20,11 +20,11 @@ face_cascade = cv.CascadeClassifier(haarcascades + "haarcascade_frontalface_defa
 proces_img = {} # a dictionary
 
 # open every image save them in the dict proces_img under key proces_img[img]
-small_zip = zipfile.ZipFile('static/zippedFiles/small_img.zip', 'r')
-for member in small_zip.infolist():
-    file = small_zip.open(member)
-    image = Image.open(file).convert('RGB')
-    proces_img[member.filename] = {'img': image}
+# small_zip = zipfile.ZipFile('static/zippedFiles/small_img.zip', 'r')
+# for member in small_zip.infolist():
+#     file = small_zip.open(member)
+#     image = Image.open(file).convert('RGB')
+#     proces_img[member.filename] = {'img': image}
 # proces_img's data structure:
 # proces_img = {"image1" : {'img' : image, 'text' : 'text_body', 'faces' : [PIL.Image.Image object of face]} , item_dictionary_2, ....}
 

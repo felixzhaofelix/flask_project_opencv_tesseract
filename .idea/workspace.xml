@@ -1,42 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ff45a65-27e2-444d-9e71-1c4e9a1451a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/flaskOpencvTesseractSearchEngine.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/previousRequirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/emoji1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/emoji2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/emoji3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/emoji4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-0.png/a-0.png_face_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-1.png/a-1.png_face_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-2.png/a-2.png_face_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-2.png/a-2.png_face_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-3.png/a-3.png_face_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_faces/a-3.png/a-3.png_face_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_text/small_text_0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_text/small_text_1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_text/small_text_2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unzippedFiles/small/small_text/small_text_3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/zippedFiles/small_img.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    <list default="true" id="7ff45a65-27e2-444d-9e71-1c4e9a1451a0" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/templates/scripts/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/stuff.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,15 +22,40 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;felixzhaofelix&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/felixzhaofelix/flask_project_opencv_tesseract.git&quot;,
+    &quot;accountId&quot;: &quot;0edd0b0b-317c-4305-8163-f11b9b18c677&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2jB6byuuENDeJw7y8pCUYOOiqCt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -64,24 +64,30 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/felixzhao/PycharmProjects/flaskOpencvTesseractSearchEngine/static",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Flask server.flaskOpencvTesseractSearchEngine.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/felixzhao/PycharmProjects/flaskOpencvTesseractSearchEngine/static&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/scripts" />
     </key>
   </component>
   <component name="RunManager">
@@ -93,7 +99,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -119,10 +125,40 @@
       <option name="presentableId" value="Default" />
       <updated>1720848197487</updated>
       <workItem from="1720848201169" duration="310000" />
+      <workItem from="1720906010542" duration="3714000" />
+      <workItem from="1720910311323" duration="555000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1720849251317</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720849251317</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/flaskOpencvTesseractSearchEngine$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1720848583777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/flaskOpencvTesseractSearchEngine$flaskOpencvTesseractSearchEngine.coverage" NAME="flaskOpencvTesseractSearchEngine Coverage Results" MODIFIED="1720910343743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

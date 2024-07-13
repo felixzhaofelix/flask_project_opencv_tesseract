@@ -1,19 +1,23 @@
-from flask import Flask, render_template
-import project
+from flask import Flask, render_template, redirect, request, url_for, session, flash
+import utils
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():  # put application's code here
-    num = 10
-    return render_template("index.html", num=num)
+def home():  # put application's code here
+    header = 'Home'
+    return render_template("test.html")
 
 
-@app.route('/small/')
-def display_small():
-    project.run_small()
+@app.route('/greeting/<user>')
+def greeting(user):
+    greeting = f'hello {user}'
+    return render_template("index.html", greeting=greeting)
 
+@app.route('/get_image/')
+def get_image():
+    return "static/img/emoji1.png"
 
 
 
