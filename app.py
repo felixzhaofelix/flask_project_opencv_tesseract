@@ -10,6 +10,18 @@ def home():  # put application's code here
     return render_template("index.html", header=header)
 
 
+@app.route('/upload/')
+def upload():
+    header = 'Upload'
+    return render_template("upload.html", header=header)
+
+
+@app.route('/search/')
+def search():
+    header = 'Search'
+    return render_template("Search.html", header=header)
+
+
 @app.route('/greeting/<user>')
 def greeting(user):
     greeting = f'hello {user}'
