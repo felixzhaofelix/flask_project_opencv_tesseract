@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():  # put application's code here
     header = 'Home'
-    return render_template("test.html")
+    return render_template("index.html", header=header)
 
 
 @app.route('/greeting/<user>')
@@ -15,11 +15,16 @@ def greeting(user):
     greeting = f'hello {user}'
     return render_template("index.html", greeting=greeting)
 
+
 @app.route('/get_image/')
 def get_image():
     return "static/img/emoji1.png"
 
 
+@app.route('/scripts/script.js/')
+def get_script():
+    return "templates/scripts/script.js"
+
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
