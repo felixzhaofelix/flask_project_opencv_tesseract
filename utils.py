@@ -17,6 +17,8 @@ from PIL import ImageOps, ImageDraw
 # loading the face detection classifier
 face_cascade = cv.CascadeClassifier(haarcascades + "haarcascade_frontalface_default.xml")
 
+
+
 proces_img = {} # a dictionary
 
 # open every image save them in the dict proces_img under key proces_img[img]
@@ -135,25 +137,43 @@ os.makedirs(directory_text, exist_ok=True)
 # # In[18]:
 #
 #
-# #define make contact sheet function
-# def make_cs(img_list):
-#     img_num = len(img_list)
-#     if img_num%5 == 0:
-#         h = (int(img_num/5))*img_list[0].height
-#     else:
-#         h = (int(img_num/5)+1)*img_list[0].height
-#     w = img_list[0].width*5
-#     contact_sheet = Image.new(img_list[0].mode, (w, h))
-#     x = 0
-#     y = 0
-#     for img in img_list:
-#         contact_sheet.paste(img, (x, y))
-#         if x + img_list[0].width == contact_sheet.width:
-#             x = 0
-#             y = y + img_list[0].height
-#         else:
-#             x = x + img_list[0].width
-#     return contact_sheet
+# define make contact sheet function
+
+
+def make_cs(img_list):
+    img_num = len(img_list)
+    if img_num % 5 == 0:
+        h = (int(img_num/5))*img_list[0].height
+    else:
+        h = (int(img_num/5)+1)*img_list[0].height
+    w = img_list[0].width*5
+    contact_sheet = Image.new(img_list[0].mode, (w, h))
+    x = 0
+    y = 0
+    for img in img_list:
+        contact_sheet.paste(img, (x, y))
+        if x + img_list[0].width == contact_sheet.width:
+            x = 0
+            y = y + img_list[0].height
+        else:
+            x = x + img_list[0].width
+    return contact_sheet
+
+
+def make_cs_by_size(img_list, img_row_num, img_col_num): #specify appropriate size in multiple of img size, assuming len(img_list) is known
+    h = img_list[0].height*img_row_num
+    w = img_list[0].width*img_col_num
+    contact_sheet = Image.new(img_list[0].mode, (w, h))
+    x = 0
+    y = 0
+    for img in img_list:
+        contact_sheet.paste(img, (x, y))
+        if x + img_list[0].width == contact_sheet.width:
+            x = 0
+            y = y + img_list[0].height
+        else:
+            x = x + img_list[0].width
+    return contact_sheet
 #
 #
 #

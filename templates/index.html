@@ -16,10 +16,12 @@
         }
         .main {
             width: 100%;
+            height: 160vh;
             display: flex;
             justify-content: center;
             align-items: center;  /* Optionally center vertically (if needed) */
             background-color: cornflowerblue;
+            padding: 0;
         }
         .popovers{
             display: flex;
@@ -34,66 +36,266 @@
         .tab-pane{
             color: cornsilk;
             background-color: cornflowerblue;
-
         }
+
         #big-img image{
             width: 30%;
             height: 30%
+        }
+        .col > .btn {
+            display: flex;
+            width: fit-content;
+            justify-self: center;
+
+        }
+        #main-columns > .col {
+            background-color: white;
+            height: inherit;
+            flex : 1;
+            border-radius: 10px;
+            border: 4px solid cornflowerblue;
+            margin-left: 1vh;
+            margin-right: 1vh;
+            display: flex;
+            flex-direction: column;
+        }
+        #main-columns {
+            display: flex;
+            flex-direction: row;
+            width: fit-content(100%);
+        }
+        /* Media query for mobile devices (adjust breakpoint as needed) */
+        @media (max-width: 768px) {
+          #main-columns {
+            flex-direction: column; /* Stack columns on mobile */
+          }
+          .col {  /* Optional for individual column styling on mobile */
+                flex-direction: row;
+              display: block;
+
+
+          }
+        }
+        #inner-col:hover {
+            border: 10px solid lightcoral;
+        }
+        #main-columns > .col:hover{
+            transition: transform 0.3s ease-out, height 0.3s ease-out, padding 0.3s ease-out, border 0.3s ease-out;
+            flex:2;
+
+            transform: scale(110%);
+            padding: 0;
+            border: 6px solid rgba(100, 149, 237, 0);
+            border-radius:10px;
+        }
+        .scrollspy-example {
+            height: 700px;
+            overflow-y: auto;
+        }
+        #sample-box {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center; /* Change this from align-content to align-items */
+        }
+        #get-image-button {
+            height: fit-content;
+        }
+        @keyframes grow {
+          from {
+            max-height: 100%;
+            max-width: 100%;
+          }
+          to {
+            max-height: 200%; /* End at 120% of container's height */
+            max-width: 200%;
+          }
+
+        }
+         @keyframes shrink {
+          from {
+            max-height: 100px;
+            max-width: 100px;
+          }
+          to {
+            max-height: 1px; /* End at 120% of container's height */
+            max-width: 1px;
+          }
+
+        }
+        #home-center-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 25vh;
+            text-align: center; /* Optional: to center-align text */
         }
 
     </style>
     <script src="../static/scripts/script.js"></script>
 </head>
 <body>
-    <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color: cornflowerblue; color: cornsilk;">
+    <div class="my-nav-bar">
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color: cornflowerblue; color: cornsilk; justify-content: center">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" >Home</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Upload</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Search</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
       </li>
     </ul>
+    </div>
+
     <div class="tab-content" id="myTabContent" style="background-color: cornflowerblue">
       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-          <p>This is the left-most tab content</p>
+        <div id="home-center-container">
+            <H2>python image processing search engine</H2>
+            <H5>libraries used: </H5>
+            <ul style="justify-items: self-start">
+                <li>OpenCV for Python</li>
+                <li>Pytesseract</li>
+                <li>Flask</li>
+                <li>Bootstrap</li>
+                <li>Jinja2</li>
+            </ul>
+        </div>
       </div>
+
       <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-          <p>This is some text about the second tab from the left</p>
+          {% include "upload.html" %}
       </div>
       <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-          <p>This is some text about the third tab from the left</p>
+          {% include "search.html" %}
       </div>
-      <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">Content 4</div>
     </div>
 
-    <H1>{{greeting}}</H1>
-    <H1>{{header}}</H1>
-    <div id="image-container"></div>
+    <div class="main" >
 
-    <H1>Welcome to Python OCR</H1>
-    <H5>Libraries used: </H5>
-    <ul>
-        <li>OpenCV</li>
-        <li>Tesseracts</li>
-        <li>Flask</li>
-        <li>Bootstrap</li>
-        <li>Jinja2</li>
-    </ul>
+        <div class="container text-center" style="height:100%; margin:0; padding:0">
+          <div class="row" id="main-columns" style="height:100%; margin:0;">
+            <div class="col align-self-center"> {# this is a flex box #}
+                <H2>describe</H2>
+                <H5>this is a search engine for which you can upload a zip file of content like: </H5>
+                <ul>
+                    <li>newspaper</li>
+                    <li>comic strips</li>
+                    <li>articles</li>
+                </ul>
+                <p>
+                    python code is used to allows one to search through the images looking for the occurrences of keywords and faces. e.g. if you search for "pizza" it will return a contact sheet of all of the faces which were located on the page which mentions "pizza".
+                </p>
+                <H5>example newspaper page : </H5>
+                <div id="sample-box">
+                    <img id="example-newspaper-img" alt="example-newspaper-img" src="../static/img/sample-newspaper.png" width="150px">
+                    <button type="button" class="btn btn-primary" id="get-image-button">Click to extract!</button>
+                </div>
+{#                open scrollspy element#}
+                <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+                    <a class="navbar-brand" href="#">extraction results</a>
+                    <ul class="nav nav-pills" id="nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="faces-tab" data-bs-toggle="tab" href="#scrollspyHeading1" role="tab" aria-controls="scrollspyHeading1" aria-selected="true">faces</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="text-tab" data-bs-toggle="tab" href="#scrollspyHeading2" role="tab" aria-controls="scrollspyHeading2" aria-selected="false">text</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div id="scrollable-text-container" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+                    <h4 id="scrollspyHeading1">faces</h4>
+                    <img id="example-faces-contactsheet" alt="example-faces-contactsheet" src="../static/img/example_cs_black.png" width="300" height="200">
+                    <h4 id="scrollspyHeading2">text</h4>
+                    <p id="example-text">extracted text to be ...</p>
+                </div>
+
+{#                close scrollspy element#}
+
+{#                <div id="example-newspaper-img-container" style="display: flex; flex-direction: row; border: 1px solid lightcoral">#}
+{#                    <div id="example-output-box" style="display: flex; flex-direction: column; border: 1px solid lightcoral; flex:2;">#}
+{#                        <img id="example-faces-contactsheet" alt="example-faces-contactsheet" src="../static/img/example_cs_black.png" width="300px" height="200px">#}
+{#                        <p id="example-text">Ann Arbor, Michigan Wednesday, November 5, 2014 ...</p>#}
+{#                    </div>#}
+{#                </div>#}
+
+
+            </div>
+            <div class="col align-self-center">
+                <H2>upload</H2>
+                    <form action="/upload/" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="zipFile" class="form-label">Upload Zip File</label>
+                            <input class="form-control" type="file" id="zipFile" name="zipFile" accept=".zip" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                <button type="button" class="btn btn-primary" id="max-upload">Maximize</button>
+            </div>
+            <div class="col align-self-center">
+                <H2>search</H2>
+                    <form action="/search" method="get">
+                        <div class="mb-3">
+                            <label for="searchQuery" class="form-label">Search Text</label>
+                            <input type="text" class="form-control" id="searchQuery" name="searchQuery" placeholder="Enter text to search" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                    <div id="searchResults">
+                        <!-- Search results will be displayed here -->
+                    </div>
+
+{#                open scrollspy element#}
+                <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+                    <a class="navbar-brand" href="#">Extraction Results</a>
+                    <ul class="nav nav-pills" id="nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="faces-tab" data-bs-toggle="tab" href="#scrollspyHeading1" role="tab" aria-controls="scrollspyHeading1" aria-selected="true">Faces</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="text-tab" data-bs-toggle="tab" href="#scrollspyHeading2" role="tab" aria-controls="scrollspyHeading2" aria-selected="false">Text</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div id="scrollable-text-container" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+                    <h4 id="scrollspyHeading1">First heading</h4>
+                    <p id="example-text-part1">This is the content for the first heading. Add more content here to see the scroll effect. This is the content for the first heading. Add more content here to see the scroll effect.</p>
+                    <p id="example-text-part1">This is the content for the first heading. Add more content here to see the scroll effect. This is the content for the first heading. Add more content here to see the scroll effect.</p>
+                    <p id="example-text-part1">This is the content for the first heading. Add more content here to see the scroll effect. This is the content for the first heading. Add more content here to see the scroll effect.</p>
+                    <p id="example-text-part1">This is the content for the first heading. Add more content here to see the scroll effect. This is the content for the first heading. Add more content here to see the scroll effect.</p>
+                    <p id="example-text-part1">This is the content for the first heading. Add more content here to see the scroll effect. This is the content for the first heading. Add more content here to see the scroll effect.</p>
+                    <p id="example-text-part1">This is the content for the first heading. Add more content here to see the scroll effect. This is the content for the first heading. Add more content here to see the scroll effect.</p>
+                    <p id="example-text-part1">This is the content for the first heading. Add more content here to see the scroll effect. This is the content for the first heading. Add more content here to see the scroll effect.</p><p id="example-text-part1">This is the content for the first heading. Add more content here to see the scroll effect. This is the content for the first heading. Add more content here to see the scroll effect.</p>
+                    <p id="example-text-part1">This is the content for the first heading. Add more content here to see the scroll effect. This is the content for the first heading. Add more content here to see the scroll effect.</p>
+
+                    <h4 id="scrollspyHeading2">Second heading</h4>
+                    <p id="example-text-part2">This is the content for the second heading. Add more content here to see the scroll effect. This is the content for the second heading. Add more content here to see the scroll effect.</p>
+                </div>
+
+{#                close scrollspy element#}
+                <button type="button" class="btn btn-primary" id="max-search">Maximize</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div id="test1-div" style="width:10px; height:10px; background-color:blue"></div>
+
     <div class="popovers">
         <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-placement="top" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-    </div>
-    <button type="button" class="btn btn-primary" id="get-image-button" onclick="toggleImage()">Toggle Image</button>
-
-
-    <div class="main">
 
     </div>
+    <button type="button" class="btn btn-primary" id="toggle-button" >Toggle Image</button>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 {#    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>#}
@@ -116,49 +318,132 @@
         })
     </script>
     <script>
-        function handleClickEvent() {
-            console.log("Button clicked!"); // Add a message to the console for verification
-        }
-
         const button = document.getElementById('get-image-button');
-
         // Check if the button exists before attaching the event listener
         if (button) {
-            button.addEventListener('click', handleClickEvent);
+            button.addEventListener('click', function() {
+                console.log(`Button with ID = ${button.getAttribute('id')} clicked!`);
+                toggleImage();
+            });
         } else {
-            console.error("Button with ID 'myButton' not found!");
+            console.error(`Event listener attaching failed because button doesn\'t exist!`);
         }
     </script>
+    <script>
 
-{#    <script>#}
-{#        function getImage() {#}
-{#          var xhr = new XMLHttpRequest(); // Create an XMLHttpRequest object#}
-{#          xhr.open("GET", "/get_image/", true); // Open a GET request to the image route#}
-{##}
-{##}
-{#          xhr.onload = function() {#}
-{#            if (xhr.status === 200) { // Check for successful response (200 OK)#}
-{#              var imageContainer = document.getElementById("image-container");#}
-{#              var imageUrl = xhr.responseText; // Get the image URL from the response#}
-{#              imageContainer.innerHTML = "<img id='big-img' src='" + imageUrl + "' alt='Image' width='30%'>";#}
-{#            } else {#}
-{#              console.error("Error fetching image:", xhr.statusText); // Handle errors#}
-{#            }#}
-{#          };#}
-{##}
-{#          xhr.send(); // Send the request#}
-{#        }#}
-{#        function toggleImage() {#}
-{#          var imageContainer = document.getElementById("image-container");#}
-{#          var image = imageContainer.querySelector("img"); // Check for existing image element#}
-{##}
-{#          if (!image) { // If no image element exists#}
-{#            getImage(); // Fetch the image URL#}
-{#          } else {#}
-{#            image.style.display = image.style.display === 'none' ? 'block' : 'none'; // Toggle display based on current state#}
-{#          }#}
-{#        }#}
-{#    </script>#}
+      function test1(){
+        document.getElementById('test1-div').style.backgroundColor = 'red';
+        document.getElementById('test1-div').style.animation = 'grow 5s ease-in-out'
+      }
+      function test2(){
+        document.getElementById('test1-div').style.backgroundColor = 'blue';
+        document.getElementById('test1-div').style.animation = 'shrink 5s'
+      }
+
+      function bigger(){
+          const cols = Array.from(document.getElementsByClassName('col'));
+      }
+      function smaller(){
+      }
+        function changeColor(num) {
+          // 1. Get all elements with the class 'col' as an array
+          const cols = Array.from(document.getElementsByClassName('col'));
+
+          // 2. Input validation (optional):
+          // - Check if num is a valid index within the 'cols' array
+          // - Handle invalid input gracefully (e.g., console.warn or display an error message)
+
+          // 3. Handle valid input:
+          if (num >= 0 && num < cols.length) {
+            const theCol = cols[num]; // Use consistent naming (camelCase)
+
+            // 4. Change color of the selected element
+            theCol.style.backgroundColor = 'white';
+            theCol.style.width = '50vh';
+
+            // 5. Change color of other elements (more efficient approach)
+            cols.forEach((col, index) => {
+              if (index !== num) {
+                col.style.backgroundColor = 'white';
+                col.style.width = '25vh';
+              }
+            });
+          }
+        }
+        function changeColorBack(){
+          let cols = Array.from(document.getElementsByClassName('col'));
+          cols.forEach(col => {col.style.backgroundColor = 'white'});
+        }
+
+
+        let cols = Array.from(document.getElementsByClassName('col'));
+
+        for (let i = 0; i < cols.length; i++) {
+            const col = cols[i];
+            col.addEventListener('mouseenter', () => changeColor(i));
+            col.addEventListener('mouseout', changeColorBack);  // Assuming test2 is your function for handling mouseout
+        }
+
+    </script>
+    <script>
+             document.getElementById("max-describe").addEventListener("click", function() {
+                window.location.href = "{{ url_for('describe') }}";
+              });
+              document.getElementById("max-upload").addEventListener("click", function() {
+                window.location.href = "{{ url_for('upload') }}";
+              });
+             document.getElementById("max-search").addEventListener("click", function() {
+                window.location.href = "{{ url_for('search') }}";
+              });
+
+    </script>
+    <script>
+        const scrollSpy = new bootstrap.ScrollSpy(document.getElementById("scrollable-text-container"), {
+        target: "#navbar-example2"
+        })
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const triggerTabList = document.querySelectorAll('#nav-tabs .nav-link');
+            const scrollableContainer = document.getElementById('scrollable-text-container');
+
+            triggerTabList.forEach(triggerEl => {
+                const tabTrigger = new bootstrap.Tab(triggerEl);
+
+                triggerEl.addEventListener('click', event => {
+                    event.preventDefault();
+                    tabTrigger.show();
+
+                    const target = document.querySelector(triggerEl.getAttribute('href'));
+                    scrollableContainer.scrollTo({
+                        top: target.offsetTop - scrollableContainer.offsetTop,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add scroll event listener for scrollspy
+            scrollableContainer.addEventListener('scroll', function() {
+                const scrollPos = scrollableContainer.scrollTop;
+                const sections = scrollableContainer.querySelectorAll('h4');
+                sections.forEach(function(section) {
+                    const currLink = document.querySelector('a[href="#' + section.id + '"]');
+                    if (section.offsetTop <= scrollPos + scrollableContainer.offsetTop &&
+                        section.offsetTop + section.offsetHeight > scrollPos + scrollableContainer.offsetTop) {
+                        document.querySelectorAll('#nav-tabs .nav-link').forEach(function(link) {
+                            link.classList.remove('active');
+                        });
+                        currLink.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+
+
 </body>
 </html>
 
