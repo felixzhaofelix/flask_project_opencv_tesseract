@@ -1,11 +1,14 @@
 import os
 
-from flask import Flask, render_template, redirect, request, url_for, session, flash
+from flask import Flask, render_template, redirect, request, url_for, session, flash, jsonify
 import utils
 import example
 
 
 app = Flask(__name__)
+
+app.config['UPLOAD_FOLDER'] = 'static/uploads'
+app.secret_key = 'a_secret_key'
 
 
 @app.route('/')
@@ -13,10 +16,79 @@ def home():  # put application's code here
     return render_template("index.html")
 
 
-@app.route('/upload/', methods=['GET', 'POST'])
+@app.route('/get_session/')
+def get_session():
+    if session:  # if session is not empty
+        response = {}
+        for key, value in session.items():
+            response[key] = value
+        return jsonify(response) # whatever I return here, is the xhr.responseText, same for all other requests
+    else:  # if session is empty
+        return jsonify({'error': 'Session not found'})
+
+
+@app.route('/logout/')
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
+
+
+@app.route('/login/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username').strip()  # get username from request and strip any extra spaces
+
+        username_file_path = 'static/usernames/usernames.txt'
+        if not os.path.exists(username_file_path):  # first time creating file
+            os.makedirs('static/usernames', exist_ok=True)
+            with open(username_file_path, 'w') as file:
+                file.write("")  # create empty file
+
+        with open(username_file_path, 'r') as file:
+            usernames = [line.strip() for line in file.readlines()]  # strip newline characters from usernames
+
+        if username in usernames:
+            is_returning_user = True
+            session['username'] = username  # case where it's an existing user
+            session['is_returning_user'] = is_returning_user
+        else:
+            session['username'] = username  # case where it's a new user
+            is_returning_user = False
+            session['is_returning_user'] = is_returning_user
+            with open(username_file_path, 'a') as file:
+                if usernames:  # if usernames is not empty
+                    file.write('\n' + username)
+                else:  # if usernames is empty
+                    file.write(username)
+
+        if is_returning_user:
+            # flash(f'Hello again {username} from flashing')
+            # session.pop('username', None)
+            return jsonify({'message': session['username'], 'is_returning_user': session['is_returning_user']}), 200
+        else:
+            # flash(f'Hello New Visitor {username} from flashing')
+            return jsonify({'message': session['username'], 'is_returning_user': session['is_returning_user']}), 200
+
+
+@app.route('/upload/', methods=['POST'])
 def upload():
-    header = 'Upload'
-    return render_template("upload.html", header=header)
+    usr_name = str(session['username'])
+    is_returning_user = bool(session['is_returning_user'])
+    if request.method == 'POST':
+        if 'file' not in request.files:  # if there's no file item in the request
+            return jsonify({'error': 'No file part'}), 400
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({'error': 'No selected file'}), 400
+        if file and file.filename.endswith('.zip'):  # if we have a valid zipfile
+            filename = file.filename
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], usr_name)
+            os.makedirs(file_path, exist_ok=True)
+            file.save(os.path.join(file_path, filename))
+            return jsonify({'message': f'File uploaded successfully and saved at {file_path}'}), 200
+
+        return 'Invalid file type', 400
+    return redirect(url_for('home'))
 
 
 @app.route('/search/')
@@ -29,7 +101,6 @@ def search():
 def describe():
     header = 'Describe'
     return render_template("Describe.html", header=header)
-
 
 
 @app.route('/example/')

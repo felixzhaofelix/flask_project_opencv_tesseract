@@ -8,15 +8,18 @@ import numpy as np
 import PIL
 from PIL import ImageOps, ImageDraw
 import utils
+import matplotlib.pyplot as plt
 
+
+# open single image manipulation module
 # loading the face detection classifier
 # face_cascade = cv.CascadeClassifier(haarcascades + "haarcascade_frontalface_default.xml")
 
 example_src = "static/img/sample-newspaper.png"
 
-def extract_example(src):
+def extract_example(src): #src is an img
     face_cascade = cv.CascadeClassifier(haarcascades + "haarcascade_frontalface_default.xml")
-    example_img = Image.open(example_src).convert('RGB')
+    example_img = Image.open(src).convert('RGB')
     example_d = {'title': example_src, 'img': example_img, 'faces': [], 'text': ''}
     # example_d = {'title : example_src, 'img' : example_img, 'faces' : [img_face_1, img_face_2, ..], 'text': ['some text'}
     example_d['text'] = pytesseract.image_to_string(example_d['img'])
@@ -48,6 +51,31 @@ def make_cs_by_size(img_list, img_row_num, img_col_num): #specify appropriate si
 def open_file_to_extract_text(src):
     with open(src, 'r') as f:
         return f.read()
+
+# close single image manipulation module
+
+# open zip file verification module
+# close zip file verification module
+# src_zip = (zipfile.ZipFile(example_src))
+# def checkZipFile(usr, src): # src is a zipfile of .png or .jpg or .npy or .npy, usr is user id as str
+#     UPLOAD_FOLDER = 'static/unzippedFiles'
+#     current_usr_path = usr
+#     usr_directory = os.path.join(os.path.join(UPLOAD_FOLDER, current_usr_path))
+#     os.makedirs(usr_directory, exist_ok=True)
+#     zip = zipfile.ZipFile(src, 'r')
+#     zipFile_name = zip.filename
+#     zip.
+
+
+def make_dir_if_not_exist(username):
+    current_dir = os.path.join('static/unzippedFiles', username)
+    if not os.path.exists(current_dir):
+        os.makedirs(current_dir, exist_ok=True)
+
+
+
+
+
 
 
 

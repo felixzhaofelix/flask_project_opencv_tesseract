@@ -229,18 +229,34 @@
             </div>
             <div class="col align-self-center">
                 <H2>upload</H2>
-                    <form action="/upload/" method="post" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <label for="zipFile" class="form-label">Upload Zip File</label>
-                            <input class="form-control" type="file" id="zipFile" name="zipFile" accept=".zip" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                    </form>
-                <button type="button" class="btn btn-primary" id="max-upload">Maximize</button>
+{#                open login form#}
+                <form enctype="multipart/form-data">
+                    <label>
+                        <input type='text' name="nm" id="username" placeholder="username" required>
+                    </label>
+                    <button type="submit" class="btn btn-primary" id="login-button">Login or Sign Up</button>
+                    <button type="button" class="btn btn-primary" id="logout-button">Logout</button>
+                </form>
+{#                close login form#}
+
+                <H4 id="login-status">Hello Anonymous Visitor!</H4>
+                <p>currently logged as : </p><p id="current-user"></p>
+                <p>currently available files : </p><p id="available-files"></p>
+
+{#                open upload form#}
+                <form enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="zipFile" class="form-label">Upload Zip File</label>
+                        <input class="form-control" type="file" id="file" name="file" accept=".zip" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="upload-button">Upload</button>
+                </form>
+{#                close upload form#}
+                <div id="upload-response"></div>
             </div>
             <div class="col align-self-center">
                 <H2>search</H2>
-                    <form action="/search" method="get">
+                    <form action="/search" method="get" id="upload-form">
                         <div class="mb-3">
                             <label for="searchQuery" class="form-label">Search Text</label>
                             <input type="text" class="form-control" id="searchQuery" name="searchQuery" placeholder="Enter text to search" required>
@@ -386,18 +402,6 @@
 
     </script>
     <script>
-             document.getElementById("max-describe").addEventListener("click", function() {
-                window.location.href = "{{ url_for('describe') }}";
-              });
-              document.getElementById("max-upload").addEventListener("click", function() {
-                window.location.href = "{{ url_for('upload') }}";
-              });
-             document.getElementById("max-search").addEventListener("click", function() {
-                window.location.href = "{{ url_for('search') }}";
-              });
-
-    </script>
-    <script>
         const scrollSpy = new bootstrap.ScrollSpy(document.getElementById("scrollable-text-container"), {
         target: "#navbar-example2"
         })
@@ -438,6 +442,36 @@
                 });
             });
         });
+    </script>
+{#    <script>#}
+{#        const upload_form = document.getElementById('upload-form');#}
+{#        upload_form.addEventListener('submit', function (event) {#}
+{#            event.preventDefault()#}
+{#            uploadFile()#}
+{#        })#}
+{#    </script>#}
+    <script>
+        document.getElementById('upload-button').addEventListener('click', function(event) {
+            event.preventDefault()
+            if (document.getElementById('current-user').value !== ''){
+                uploadFile()
+            } else {
+                window.alert('Please login or sign up before uploading file!')
+            }
+        }); // Prevent the default form submission
+        document.getElementById('login-button').addEventListener('click', function(event) {
+            event.preventDefault()
+            if (document.getElementById('username').value !== ''){
+                user_login()
+            } else {
+                window.alert('Please enter a valid username!')
+            }
+
+        }); // Prevent the default form submission
+        document.getElementById('logout-button').addEventListener('click', function(event) {
+            event.preventDefault()
+            user_logout()
+        }); // Prevent the default form submission
     </script>
 
 
