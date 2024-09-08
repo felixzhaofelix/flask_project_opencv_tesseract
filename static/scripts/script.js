@@ -79,8 +79,6 @@ function uploadFile(){
         // response.innerHTML = '<p>Please select a file to upload.</p>';
         myResponse = '<p>Please select a file to upload.</p>';
         window.alert(myResponse)
-
-
     }
 
 }
@@ -149,18 +147,148 @@ function show_login_status(username){
     status.innerText = 'Hello ' + username;
 }
 
+function get_session_data(callback){
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', '/get_session/', true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            let response = JSON.parse(xhr.responseText);
+            console.log("this is the type of response from AJAX : " + typeof response);
+            callback(response);
+            }
+        }
+    xhr.send();
+}
 function get_session_data(){
     const xhr = new XMLHttpRequest();
     xhr.open('GET', '/get_session/', true);
     xhr.onload = function () {
         if (xhr.status === 200) {
             let response = JSON.parse(xhr.responseText);
-            console.log(response);
+            console.log("this is the type of response from AJAX : ");
+            console.log(Object.entries(response));
+
             }
         }
     xhr.send();
 }
 
 
-
 //close user session handling
+
+//open get user list
+function get_users() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', '/get_users/', true);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      let users = JSON.parse(xhr.responseText);
+      let user_list = document.getElementById('existing-users');
+      console.log(users);
+      console.log(typeof users); // This should be "object" now
+
+      for (const user of users) { // Loop through the user objects in the array
+        const listItem = document.createElement('li');
+        listItem.textContent = user; // Assuming "name" is a property in the user object
+        user_list.appendChild(listItem);
+      }
+    }
+  };
+  xhr.send();
+}
+
+function get_available_files_for_current_user(){
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', '/get_available_files/', true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            if ('message' in response) {
+                window.alert(response.message);
+            }
+            else{
+                let file_list = document.getElementById('user-file-list')
+                file_list.replaceChildren()
+                for (const file of Object.keys(response)){
+                   const fileSwitch = document.createElement('div');
+                   fileSwitch.setAttribute('class', 'form-check form-switch');
+
+                    // Create the input element with the necessary attributes
+                    const inputElement = document.createElement('input');
+                    inputElement.setAttribute('class', 'form-check-input');
+                    inputElement.setAttribute('type', 'checkbox');
+                    inputElement.setAttribute('role', 'switch');
+                    inputElement.setAttribute('id', 'flexSwitchCheckDefault');
+
+                    // Create the label element with the necessary attributes
+                    const labelElement = document.createElement('label');
+                    labelElement.setAttribute('class', 'form-check-label');
+                    labelElement.setAttribute('for', 'flexSwitchCheckDefault');
+                    labelElement.textContent = file;
+
+                    // Append the input and label elements to the div
+                    fileSwitch.appendChild(inputElement);
+                    fileSwitch.appendChild(labelElement);
+
+                   file_list.append(fileSwitch)
+
+                    //attach event listeners for unique selection
+                    document.querySelectorAll('.form-check-input').forEach(switchElement => {
+                            switchElement.addEventListener('change', function (event) {
+                                const switches = document.querySelectorAll('.form-check-input');
+
+                                switches.forEach(switchElement => {
+                                    if (switchElement !== event.target) {
+                                        switchElement.checked = false;
+                                    }
+                                });
+                            });
+                    });
+                }
+            }
+        }
+    }
+    xhr.send();
+}
+
+//close get user list
+
+//open get user file selection
+function get_checked_file_switch() {
+    const switchList = document.querySelectorAll('.form-check-input');
+    let selectedSwitch;
+    let filename;
+
+    for (const switchElement of switchList) {
+        if (switchElement.checked) {
+            selectedSwitch = switchElement;
+            break;  // Assuming only one switch can be checked at a time, exit the loop early.
+        }
+    }
+
+    if (selectedSwitch) {
+        filename = selectedSwitch.nextElementSibling.textContent;
+        console.log(filename);  // Get the label's text content
+    } else {
+        console.log('No switch is checked.');
+    }
+    return filename;
+}
+
+function extract_selected_file(){
+    const filename = get_checked_file_switch();
+
+    //make ajax request to extract file
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `/extract_selected_file/?filename=${encodeURIComponent(filename)}`, true);
+    xhr.onload = function () {
+       //operations
+       if (xhr.status === 200) {
+           let response = JSON.parse(xhr.responseText);
+       }
+    }
+    xhr.send();
+}
+
+//close get user file selection
+

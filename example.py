@@ -72,6 +72,10 @@ def make_dir_if_not_exist(username):
     if not os.path.exists(current_dir):
         os.makedirs(current_dir, exist_ok=True)
 
+# for dirpath, dirnames, filenames in os.walk("static/uploads"):
+#     print(f'dirpath: {dirpath}, dirnames: {dirnames}, filenames: {filenames}')
+
+
 
 
 

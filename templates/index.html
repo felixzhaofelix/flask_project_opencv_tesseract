@@ -242,6 +242,7 @@
                 <H4 id="login-status">Hello Anonymous Visitor!</H4>
                 <p>currently logged as : </p><p id="current-user"></p>
                 <p>currently available files : </p><p id="available-files"></p>
+                <p>existing users : </p><ol id="existing-users"></ol>
 
 {#                open upload form#}
                 <form enctype="multipart/form-data">
@@ -252,6 +253,24 @@
                     <button type="submit" class="btn btn-primary" id="upload-button">Upload</button>
                 </form>
 {#                close upload form#}
+            <button class="btn btn-primary" id="see-files-button">See available files</button>
+{#                open select form#}
+                <form id="select-file-form">
+
+                    <h5>Available files to search in</h5>
+                    <ol id="user-file-list"></ol>
+                    <button class="btn btn-primary" id="extract-button">Extract</button>
+                </form>
+{#                <div class="form-check form-switch">#}
+{#                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">#}
+{#                  <label class="form-check-label" for="flexSwitchCheckDefault">Default(Unchecked) switch checkbox input</label>#}
+{#                </div>#}
+{#                <div class="form-check form-switch">#}
+{#                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>#}
+{#                  <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>#}
+{#                </div>#}
+
+{#                close select form#}
                 <div id="upload-response"></div>
             </div>
             <div class="col align-self-center">
@@ -455,6 +474,7 @@
             event.preventDefault()
             if (document.getElementById('current-user').value !== ''){
                 uploadFile()
+                document.getElementById('file').value = '';
             } else {
                 window.alert('Please login or sign up before uploading file!')
             }
@@ -472,7 +492,18 @@
             event.preventDefault()
             user_logout()
         }); // Prevent the default form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            get_users();
+        });
+        document.getElementById('see-files-button').addEventListener('click', function() {
+            get_available_files_for_current_user()
+        });
+        document.getElementById(('extract-button')).addEventListener('click', function(event) {
+            event.preventDefault();
+
+        });
     </script>
+
 
 
 

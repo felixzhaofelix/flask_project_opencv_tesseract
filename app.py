@@ -16,6 +16,28 @@ def home():  # put application's code here
     return render_template("index.html")
 
 
+app.config['UPLOAD_FOLDER'] = 'static/uploads'
+
+@app.route('/get_available_files/')
+def get_available_files():
+
+    if session.get('username') is None:
+        flash('You need to log in first.')
+        return jsonify({'message': 'You are not logged in!'})
+
+    user_directory_path = os.path.join(app.config['UPLOAD_FOLDER'], session.get('username'))
+
+    if not os.path.isdir(user_directory_path):
+        flash('No file found for this user.')
+        return jsonify({'message': 'No file found for this user.'})
+
+    else:
+        files = {}
+        for filename in os.listdir(user_directory_path):
+            files[filename] = os.path.join(user_directory_path, filename)
+    return jsonify(files)
+
+
 @app.route('/get_session/')
 def get_session():
     if session:  # if session is not empty
@@ -25,6 +47,13 @@ def get_session():
         return jsonify(response) # whatever I return here, is the xhr.responseText, same for all other requests
     else:  # if session is empty
         return jsonify({'error': 'Session not found'})
+
+
+@app.route('/get_users/')
+def get_users():
+    with open('static/usernames/usernames.txt', 'r') as f:
+        usernames = [readline.strip() for readline in f.readlines() if readline.strip() != '']
+    return jsonify(usernames)
 
 
 @app.route('/logout/')
@@ -132,6 +161,32 @@ def get_example_text():
     with open("static/unzippedFiles/small/small_text/small_text_0", "r") as f:
         content = f.read()
     return content
+
+
+@app.route('/extract_selected_file/')
+def extract_selected_file():
+    filename = request.args.get('filename')
+
+    # check if user is in session, otherwise store under directory user=anonymous
+    if 'username' in session:
+        username = session['username']
+    else:
+        username = 'anonymous'
+
+    # check if user has a directory
+
+
+    # make a directory in unzippedFiles in the pattern :
+    # unzippedFiles/user/zipfilename/zipfilename_faces
+    # or
+    # unzippedFiles/user/zipfilename/zipfilename_text
+
+    # save in directory
+
+    # return result message
+
+
+
 
 
 if __name__ == '__main__':
